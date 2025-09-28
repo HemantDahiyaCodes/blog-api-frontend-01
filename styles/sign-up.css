@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: rgb(11, 158, 11);
+    background-color: rgb(255, 255, 255);
 }
 
 h1 {
@@ -15,8 +15,8 @@ h1 {
     font-size: 2.5rem;
     text-align: center;
     color: black;
-    background-color: yellow;
-    text-shadow: 2px 1px 5px white;
+    text-shadow: 2px 1px 1px rgb(0, 0, 0);
+    text-decoration: underline;
 }
 
 form {
@@ -41,8 +41,7 @@ form div label {
     font-family: "Oswald";
     font-size: 1.5rem;
     font-weight: bolder;
-    color: white;
-    text-shadow: 1px 2px 3px black;
+    color: rgb(0, 0, 0);
 }
 
 form div input {
@@ -66,7 +65,7 @@ form button:hover {
 
 h2 {
     text-align: center;
-    color: white;
-    text-shadow: 1px 2px 3px black;
+    color: rgb(0, 0, 0);
     margin-top: 1rem;
+    font-family: "Oswald";
 }

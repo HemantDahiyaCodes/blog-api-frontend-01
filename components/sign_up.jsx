@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/sign-up.css";
 import axios from "axios";
+import { Link } from "react-router";
 
 export function SignUp() {
   const [username, setUsername] = useState("");
@@ -23,13 +24,14 @@ export function SignUp() {
       }
     );
 
-    console.log(response.data.userExists);
+    if (response.data.notValid === "too_short") {
+      return setResult(`Username ${username} is too short!`);
+    }
 
-    if (response.data.userExists === undefined) {
-      setResult(`${username} signed up successfully`);
+    if (response.data.success) {
+      return setResult(`Username ${username} signed up successfully`);
     } else {
-      console.log(username)
-      setResult(`Username ${username} is already taken`);
+      return setResult(`Username ${username} already exists`);
     }
   }
 
@@ -45,6 +47,8 @@ export function SignUp() {
             name="username"
             id="username"
             onChange={(e) => setUsername(e.target.value)}
+            required
+            minLength={4}
           />
         </div>
 
@@ -55,11 +59,17 @@ export function SignUp() {
             name="password"
             id="password"
             onChange={(e) => setPassword(e.target.value)}
+            required
+            minLength={5}
           />
         </div>
 
         <button type="submit">sign up</button>
       </form>
+
+      <div className="login-container">
+        <span>Already a user? Click the link to log in <Link to="/log-in">Log in</Link></span>
+      </div>
     </>
   );
 }
