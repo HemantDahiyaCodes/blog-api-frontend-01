@@ -1,6 +1,7 @@
 import { SignUp } from "../components/sign_up";
 import { Login } from "../components/log_in";
 import { HomePage } from "../components/homepage";
+import { Post } from "../components/post";
 
 const routes = [
   {
@@ -14,6 +15,10 @@ const routes = [
   {
     path: "/posts",
     element: <HomePage />
+  }, 
+  {
+    path: "/posts/:postId",
+    element: <Post />
   }
 ];
 

@@ -32,9 +32,8 @@ function Login() {
     );
 
     let token = response.data.token;
-    console.log(token);
-    localStorage.setItem("token", "Bearer" + token);
-    axios.defaults.headers.common['Authorization'] = "Bearer" + token
+    localStorage.setItem("token", "Bearer " + token);
+    axios.defaults.headers.common['Authorization'] = "Bearer " + token
 
     if (response.status === 200) {
       return setResult(true);
