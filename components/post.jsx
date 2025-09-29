@@ -11,8 +11,9 @@ function Post() {
   useEffect(() => {
     async function getPost() {
       const token = localStorage.getItem("token");
+      console.log("Post Id is: ", postId)
       const response = await axios.get(
-        "http://localhost:8000/users/posts/" + postId,
+        `http://localhost:8000/users/posts/${postId}`,
         {
           headers: {
             Authorization: token,
@@ -22,7 +23,7 @@ function Post() {
       );
       console.log(response)
       setResult(response.data.post);
-      setCommentsArr(response.data.post.comments || []);
+      setCommentsArr(response.data.post.comments);
     }
     getPost();
   }, [postId]);
@@ -32,7 +33,7 @@ function Post() {
 
     const token = localStorage.getItem("token");
     const response = await axios.post(
-      "http://localhost:8000/users/posts/" + postId, {
+      `http://localhost:8000/users/posts/${postId}/comment`, {
         comment
       },
       {
@@ -48,6 +49,7 @@ function Post() {
 
   return (
     <div id="post">
+    <h1>{result.title}</h1>
       <h1>{result.content}</h1>
       <div>{commentsArr.map((comment) => {
         return (
