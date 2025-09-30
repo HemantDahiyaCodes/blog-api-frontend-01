@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 function Post() {
   const { postId } = useParams();
-  const [result, setResult] = useState({});
+  const [post, setPost] = useState({});
   const [comment, setComment] = useState("");
   const [commentsArr, setCommentsArr] = useState([]);
 
@@ -22,7 +22,7 @@ function Post() {
         }
       );
       console.log(response)
-      setResult(response.data.post);
+      setPost(response.data.post);
       setCommentsArr(response.data.post.comments);
     }
     getPost();
@@ -43,14 +43,13 @@ function Post() {
         },
       }
     );
-
     location.reload(); // Reloads the page after submitting a comment
   }
 
   return (
     <div id="post">
-    <h1>{result.title}</h1>
-      <h1>{result.content}</h1>
+    <h1>{post.title}</h1>
+      <h1>{post.content}</h1>
       <div>{commentsArr.map((comment) => {
         return (
         <h3 key={comment.id}>{comment.username} commented: {comment.content}</h3>
