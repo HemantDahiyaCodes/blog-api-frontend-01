@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import "../styles/homepage-style.css";
 
 function HomePage() {
   const [posts, setPosts] = useState([]);
@@ -22,17 +23,18 @@ function HomePage() {
   }, []);
   return (
     <>
-      <h1>Welcome {user}</h1>
-      <div>
+      <div className="main-container">
+      <h1 className="user-title">Welcome {user}</h1>
+      <div className="posts-container">
         {posts.map((post) => {
           return (
-          <Link to={`/posts/${post.id}`} key={post.id}> <div id="post">
-            <p className="post-id">{post.id}</p>
-            <p>{post.content}</p>
-          </div>
-          </Link>
-          )
+              <div className="post-card">
+                <h2 className="post-title">{post.title}</h2>
+                <Link to={`/posts/${post.id}`}>View</Link>
+              </div>
+          );
         })}
+        </div>
       </div>
     </>
   );

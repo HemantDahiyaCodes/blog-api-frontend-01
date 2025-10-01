@@ -36,11 +36,11 @@ export function SignUp() {
   }
 
   return (
-    <>
-      <h1 id="my-title">Welcome to HemantDahiyaDev Blogs</h1>
+    <div id="main-container">
+      <h1 id="sign-up-title">Welcome to HemantDahiyaDev Blogs</h1>
       <h2>{result}</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form onSubmit={handleSubmit} className="sign-up-form">
+        <div className="username-field">
           <label htmlFor="username">Enter a username: </label>
           <input
             type="text"
@@ -52,7 +52,7 @@ export function SignUp() {
           />
         </div>
 
-        <div>
+        <div className="password-field">
           <label htmlFor="password">Enter a password: </label>
           <input
             type="password"
@@ -68,8 +68,8 @@ export function SignUp() {
       </form>
 
       <div className="login-container">
-        <span>Already a user? Click the link to log in <Link to="/log-in">Log in</Link></span>
+        <span>Already a user? Click <Link to="/log-in">Log in</Link></span>
       </div>
-    </>
+    </div>
   );
 }

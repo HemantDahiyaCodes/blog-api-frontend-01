@@ -2,18 +2,19 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import "../styles/log-in.css";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [result, setResult] = useState(false);
+  const [result, setResult] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(result) {
-      navigate("/posts")
+    if (result === 'Login successful') {
+      navigate("/posts");
     }
-  }, [result, navigate])
+  }, [result, navigate]);
 
   async function handleSubmit() {
     event.preventDefault();
@@ -33,45 +34,54 @@ function Login() {
 
     let token = response.data.token;
     localStorage.setItem("token", "Bearer " + token);
-    axios.defaults.headers.common['Authorization'] = "Bearer " + token
+    axios.defaults.headers.common["Authorization"] = "Bearer " + token;
 
-    if (response.status === 200) {
-      return setResult(true);
+    if (response.data.success) {
+      return setResult("Login successful");
+    } else {
+      return setResult("Username or password is not correct")
     }
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Enter your username: </label>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          required
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        />
+    <div id="main-container">
+      <h1>{result}</h1>
+      <form onSubmit={handleSubmit} className="log-in-form">
+        <div className="login-username-field">
+          <label htmlFor="username">Enter your username: </label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            required
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
+        </div>
 
-        <label htmlFor="password">Enter your password: </label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          required
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
+        <div className="login-password-field">
+          <label htmlFor="password">Enter your password: </label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            required
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
 
         <button type="submit">submit</button>
       </form>
 
-      <span>
-        Dont have an account? Sign up by clicking <Link to="/">this link</Link>
-      </span>
-    </>
+      <div className="sign-up-container">
+        <span>
+          Dont have an account? Click <Link to="/">here</Link>
+        </span>
+      </div>
+    </div>
   );
 }
 

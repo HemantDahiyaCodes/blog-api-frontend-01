@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "../styles/post-style.css";
 
 function Post() {
   const { postId } = useParams();
@@ -11,7 +12,7 @@ function Post() {
   useEffect(() => {
     async function getPost() {
       const token = localStorage.getItem("token");
-      console.log("Post Id is: ", postId)
+      console.log("Post Id is: ", postId);
       const response = await axios.get(
         `http://localhost:8000/users/posts/${postId}`,
         {
@@ -21,7 +22,7 @@ function Post() {
           },
         }
       );
-      console.log(response)
+      console.log(response);
       setPost(response.data.post);
       setCommentsArr(response.data.post.comments);
     }
@@ -33,8 +34,9 @@ function Post() {
 
     const token = localStorage.getItem("token");
     const response = await axios.post(
-      `http://localhost:8000/users/posts/${postId}/comment`, {
-        comment
+      `http://localhost:8000/users/posts/${postId}/comment`,
+      {
+        comment,
       },
       {
         headers: {
@@ -48,13 +50,9 @@ function Post() {
 
   return (
     <div id="post">
-    <h1>{post.title}</h1>
-      <h1>{post.content}</h1>
-      <div>{commentsArr.map((comment) => {
-        return (
-        <h3 key={comment.id}>{comment.username} commented: {comment.content}</h3>
-        )
-      })}</div>
+      <h1 className="post-title">{post.title}</h1>
+      <div className="post-content">{post.content}</div>
+
       <div className="comment-section">
         <form onSubmit={handleSubmit}>
           <label htmlFor="comment">Leave a comment: </label>
@@ -67,6 +65,20 @@ function Post() {
           ></textarea>
           <button type="submit">submit</button>
         </form>
+      </div>
+
+      <div className="post-title">Comments:</div>
+      <div>
+        {commentsArr.map((comment) => {
+          return (
+            <div className="comment" key={comment.id}>
+              <span className="username-bold">
+                {comment.username} commented:
+              </span>{" "}
+              <span className="comment-content"> {comment.content}</span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
