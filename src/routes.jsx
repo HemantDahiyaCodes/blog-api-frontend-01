@@ -6,14 +6,14 @@ import { Post } from "../components/post";
 const routes = [
   {
     path: "/",
-    element: <SignUp />,
+    element: <HomePage />,
   },
   {
     path: "/log-in",
     element: <Login />,
   },
   {
-    path: "/posts",
+    path: "/signup",
     element: <HomePage />
   }, 
   {
