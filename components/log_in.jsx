@@ -20,7 +20,7 @@ function Login() {
     event.preventDefault();
 
     const response = await axios.post(
-      "http://localhost:8000/users/log-in",
+      "http://localhost:8000/sessions",
       {
         username,
         password,
