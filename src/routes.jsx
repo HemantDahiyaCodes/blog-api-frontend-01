@@ -17,7 +17,7 @@ const routes = [
     element: <SignUp />
   }, 
   {
-    path: "/posts/:postId",
+    path: "/:postId",
     element: <Post />
   }
 ];
