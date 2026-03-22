@@ -4,7 +4,7 @@ import styles from "../styles/navbar-style.module.css";
 function Navbar() {
   return (
     <nav className={styles.nav}>
-      <Link to="/homepage">
+      <Link to="/">
         {" "}
         <span>//</span> Hemant Codes
       </Link>
