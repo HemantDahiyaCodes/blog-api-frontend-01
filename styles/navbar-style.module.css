@@ -12,9 +12,9 @@ nav {
     width: 100%;
 }
 
-nav a {
+nav > a {
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family: "Open sans", monospace;
     color: white;
     font-weight: 800;
@@ -35,14 +35,15 @@ nav ul {
     list-style: none;
 }
 
-nav ul li {
-    padding-left: 1rem;
+nav ul li a{
+    padding: 0.5rem;
     font-size: 0.9rem;
     font-weight: 500;
     color: #8a8986;
+    text-decoration: none;
 }
 
-nav ul li:hover {
+nav ul li a:hover {
     color: #00ff88;
     transition: 0.2s;
 }
