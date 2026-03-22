@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    background-color: rgba(10,10,10,0.85);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    width: 100%;
+}
+
+nav a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: "Open sans", monospace;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+}
+
+nav span {
+    color: #00ff88;
+    font-size: 1.2rem;
+}
+
+nav ul {
+    display: flex;
+    font-family: "Open sans";
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li {
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #8a8986;
+}
+
+nav ul li:hover {
+    color: #00ff88;
+    transition: 0.2s;
+}
