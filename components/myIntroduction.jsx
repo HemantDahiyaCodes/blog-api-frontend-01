@@ -15,9 +15,6 @@ function MyIntroduction() {
                 <span>Self-taught developer writing about real problems, real bugs, and the messy process of building software that works.</span>
             </div>
             <hr />
-            <div>
-                <span></span>
-            </div>
         </div>
     )
 }
