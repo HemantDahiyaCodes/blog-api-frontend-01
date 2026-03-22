@@ -5,13 +5,12 @@
 }
 
 .post_container {
-  width: 70%;
+  width: 80%;
   max-height: 500px;
-  overflow-y: scroll;
+  overflow-y: auto;
   justify-self: center;
   display: flex;
   flex-direction: column;
-  border: 1px solid white;
   margin-bottom: 1rem;
   scrollbar-width: thin;
 }
@@ -45,4 +44,5 @@
   font-size: 2.5rem;
   color: white;
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
