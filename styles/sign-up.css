@@ -34,7 +34,7 @@
     /* margin: 1rem; */
 }
 
-.sign-up-form .username-field, .password-field {
+.sign-up-form .username-field, .password-field, .email-field {
     text-align: center;
     padding: 1rem;
     display: flex;
