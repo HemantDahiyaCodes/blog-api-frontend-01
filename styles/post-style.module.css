@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.post_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.post {
+    width: 90%;
+    padding: 1rem;
+}
+
+.titleAndDesc {
+    display: flex;
+    flex-direction: column;
+}
+
+.post_title {
+    font-family: "Syne";
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.post_description {
+    font-family: "Open sans", monospace;
+    color: rgb(192, 179, 179);
+}
+
+.post_owner {
+    font-family: "Open sans", monospace;
+    color: wheat;
+    align-self: flex-end;
+}
+
+.contentContainer {
+    display: flex;
+    width: 80%;
+    color: white;
+    font-family: "Funnel Sans", sans-serif;
+    font-size: 1.1rem;
+}
