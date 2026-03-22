@@ -5,13 +5,10 @@ import { Link } from "react-router";
 
 function AllPosts() {
   const [posts, setPosts] = useState([]);
-
   useEffect(() => {
     async function getPosts() {
-      const token = localStorage.getItem("token");
       const response = await axios.get("http://localhost:8000/posts", {
         headers: {
-          Authorization: token,
           "Content-Type": "application/json",
         },
       });
