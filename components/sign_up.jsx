@@ -6,16 +6,19 @@ import { Link } from "react-router";
 export function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
   const [result, setResult] = useState("");
 
   async function handleSubmit() {
     event.preventDefault();
 
     const response = await axios.post(
-      "http://localhost:8000/users/sign-up",
+      "http://localhost:8000/users",
       {
         username,
         password,
+        email
       },
       {
         headers: {
@@ -23,10 +26,6 @@ export function SignUp() {
         },
       }
     );
-
-    if (response.data.notValid === "too_short") {
-      return setResult(`Username ${username} is too short!`);
-    }
 
     if (response.data.success) {
       return setResult(`Username ${username} signed up successfully`);
@@ -59,6 +58,18 @@ export function SignUp() {
             name="password"
             id="password"
             onChange={(e) => setPassword(e.target.value)}
+            required
+            minLength={5}
+          />
+        </div>
+
+        <div className="email-field">
+          <label htmlFor="email">Enter an email: </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            onChange={(e) => setEmail(e.target.value)}
             required
             minLength={5}
           />
