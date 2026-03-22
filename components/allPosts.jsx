@@ -24,7 +24,7 @@ function AllPosts() {
   const allPosts = posts.map((post) => {
     return (
       <div className={styles.post} key={post.id}>
-        <span><Link to={`/:postId`}>{post.title}</Link></span>
+        <span><Link to={`/${post.id}`}>{post.title}</Link></span>
         <span className={styles.post_description}>{post.description}</span>
       </div>
     );
