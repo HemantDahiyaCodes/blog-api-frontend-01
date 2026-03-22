@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.intro_container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 3rem;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.title_country {
+    color: #00ff88;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.title_country span {
+    font-family: "Open sans", monospace;
+    font-weight: 700;
+}
+
+.oneLiner {
+    color: whitesmoke;
+    font-size: 3rem;
+    font-family: "Syne";
+    font-weight: 800;
+    padding-top: 1rem;
+}
+
+.web_color {
+    color: #00ff88
+}
+
+.short_goal {
+    color : lightgrey;
+    font-family: "roboto", monospace;
+    padding-top: 1rem;
+    line-height: 1.8;
+    font-size: 1rem;
+    width: 90%;
+}
