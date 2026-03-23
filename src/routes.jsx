@@ -9,7 +9,7 @@ const routes = [
     element: <HomePage />,
   },
   {
-    path: "/log-in",
+    path: "/login",
     element: <Login />,
   },
   {
