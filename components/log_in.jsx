@@ -1,20 +1,13 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import { useState } from "react";
 import axios from "axios";
 import "../styles/log-in.css";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (result === 'Login successful') {
-      navigate("/posts");
-    }
-  }, [result, navigate]);
 
   async function handleSubmit() {
     event.preventDefault();
@@ -29,23 +22,23 @@ function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     let token = response.data.token;
+    let user = response.data.user.username;
+    localStorage.setItem("user", user);
     localStorage.setItem("token", "Bearer " + token);
     axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+    setResult(response.data.success)
 
-    if (response.data.success) {
-      return setResult("Login successful");
-    } else {
-      return setResult("Username or password is not correct")
+    if(result) {
+      navigate("/");
     }
   }
 
   return (
     <div id="main-container">
-      <h1>{result}</h1>
       <form onSubmit={handleSubmit} className="log-in-form">
         <div className="login-username-field">
           <label htmlFor="username">Enter your username: </label>
@@ -78,7 +71,7 @@ function Login() {
 
       <div className="sign-up-container">
         <span>
-          Dont have an account? Click <Link to="/">here</Link>
+          Dont have an account? Click <Link to="/signup">here</Link>
         </span>
       </div>
     </div>
