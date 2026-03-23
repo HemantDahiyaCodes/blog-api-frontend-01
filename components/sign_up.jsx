@@ -14,7 +14,7 @@ export function SignUp() {
     event.preventDefault();
 
     const response = await axios.post(
-      `${import.meta.env.VITE_API_URL}/users`,
+      `${import.meta.env.VITE_}`,
       {
         username,
         password,
@@ -27,11 +27,7 @@ export function SignUp() {
       },
     );
 
-    if (response.data.success) {
-      return setResult(`Username ${username} signed up successfully`);
-    } else {
-      return setResult(`Username ${username} already exists`);
-    }
+    console.log(response.data);
   }
 
   return (
@@ -80,7 +76,7 @@ export function SignUp() {
 
       <div className="login-container">
         <span>
-          Already a user? Click <Link to="/log-in">Log in</Link>
+          Already a user? Click <Link to="/login">Log in</Link>
         </span>
       </div>
     </div>
