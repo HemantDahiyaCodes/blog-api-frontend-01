@@ -13,7 +13,6 @@ function AllPosts() {
     }
     getPosts();
   }, []);
-
   const allPosts = posts.map((post) => {
     return (
       <div className={styles.post} key={post.id}>
