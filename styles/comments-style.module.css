@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.CommentModal {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.acc_links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.acc_links span {
+    color: white;
+    padding: 1rem;
+}
+
+.acc_links a {
+    color: rgb(199, 195, 187);
+    font-family: "Open sans", monospace;
+    font-weight: 800;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+.acc_links a:hover {
+    color: white;
+    transition: 0.2s;
+}
+
+.commentSection {
+    width: 100%;
+}
+
+.commentSection textarea {
+    font-family: "Open sans", monospace;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.commentSection form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.commentSection form span {
+    font-family: "Syne", sans-serif;
+    font-weight: 600;
+    color: rgb(241, 230, 230);
+}
+
+.commentSection form button {
+    padding: 1rem;
+    font-family: "Open sans", monospace, sans-serif;
+    font-size: 1rem;
+    border: none;
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgb(223, 223, 223);
+}
+
+.commentSection form button:hover {
+    background-color: rgb(230, 197, 197);
+    color: black;
+    transition: 0.2s;
+    box-shadow: 1px 2px 2px black;
+}
