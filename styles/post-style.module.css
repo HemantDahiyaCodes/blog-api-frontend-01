@@ -10,7 +10,11 @@
     flex-direction: column;
     align-items: center;
     gap: 2rem;
-    padding: 1rem;
+}
+
+.post_container h1 {
+    font-family: "Syne";
+    font-weight: 700;
 }
 
 .post {
@@ -47,4 +51,26 @@
     color: white;
     font-family: "Funnel Sans", sans-serif;
     font-size: 1.1rem;
+    padding: 1rem;
+}
+
+.comments_array {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    font-family: "Open sans";
+    color: white;
+}
+
+.comments_array .comment {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.comment {
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
 }
