@@ -15,7 +15,7 @@ function Post() {
     async function getPost() {
       console.log("Post Id is: ", postId);
       const response = await axios.get(
-        `${import.meta.env.VITE_API_URL}/${postId}`,
+        `${import.meta.env.VITE_API_URL}/:${postId}`,
         {
           headers: {
             "Content-Type": "application/json",
