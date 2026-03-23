@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import styles from "../styles/navbar-style.module.css";
+import { AllPosts } from "./allPosts";
 
 function Navbar() {
   return (
@@ -10,9 +11,7 @@ function Navbar() {
       </Link>
       <ul>
         <li>
-          <a href="#" rel="noopener noreferrer">
-            POSTS
-          </a>
+          <Link to="/">POSTS</Link>
         </li>
         <li>
           <a href="#" rel="noopener noreferrer">

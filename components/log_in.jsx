@@ -20,7 +20,7 @@ function Login() {
     event.preventDefault();
 
     const response = await axios.post(
-      "http://localhost:8000/sessions",
+      `${import.meta.env.VITE_API_URL}/sessions`,
       {
         username,
         password,

@@ -7,11 +7,7 @@ function AllPosts() {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     async function getPosts() {
-      const response = await axios.get("http://localhost:8000/posts", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts`);
       console.log(response.data);
       setPosts(response.data.posts);
     }
@@ -21,7 +17,9 @@ function AllPosts() {
   const allPosts = posts.map((post) => {
     return (
       <div className={styles.post} key={post.id}>
-        <span><Link to={`/${post.id}`}>{post.title}</Link></span>
+        <span>
+          <Link to={`/${post.id}`}>{post.title}</Link>
+        </span>
         <span className={styles.post_description}>{post.description}</span>
       </div>
     );
@@ -29,10 +27,10 @@ function AllPosts() {
 
   return (
     <>
-    <h1 className={styles.posts_heading}>ALL POSTS</h1>
-    <div className={styles.post_container}>{allPosts}</div>
+      <h1 className={styles.posts_heading}>ALL POSTS</h1>
+      <div className={styles.post_container}>{allPosts}</div>
     </>
-  )
+  );
 }
 
 export { AllPosts };

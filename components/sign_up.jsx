@@ -14,17 +14,17 @@ export function SignUp() {
     event.preventDefault();
 
     const response = await axios.post(
-      "http://localhost:8000/users",
+      `${import.meta.env.VITE_API_URL}/users`,
       {
         username,
         password,
-        email
+        email,
       },
       {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     if (response.data.success) {
@@ -79,7 +79,9 @@ export function SignUp() {
       </form>
 
       <div className="login-container">
-        <span>Already a user? Click <Link to="/log-in">Log in</Link></span>
+        <span>
+          Already a user? Click <Link to="/log-in">Log in</Link>
+        </span>
       </div>
     </div>
   );
