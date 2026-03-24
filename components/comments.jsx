@@ -4,11 +4,11 @@ import axios from "axios";
 import styles from "../styles/comments-style.module.css";
 
 function CommentModal() {
-  const [user, setUser] = useState(() => localStorage.getItem("user"));
+  const userId = localStorage.getItem("userId");
+  const user = localStorage.getItem("username");
   const [content, setContent] = useState(null);
 
   const {postId} = useParams();
-  console.log("The id of the post is: ", postId )
 
   async function handleSubmit(event) {
       event.preventDefault();
@@ -29,7 +29,7 @@ function CommentModal() {
   }
     return (
       <div className={styles.CommentModal}>
-        {!user ? (
+        {!userId ? (
             <div className={styles.acc_links}>
             <span>Create a free account or login</span>
             <Link to="/signup">Sign up</Link>
