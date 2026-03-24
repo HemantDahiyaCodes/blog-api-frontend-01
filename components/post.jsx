@@ -13,7 +13,6 @@ function Post() {
 
   useEffect(() => {
     async function getPost() {
-      console.log("Post Id is: ", postId);
       const response = await axios.get(
         `${import.meta.env.VITE_API_URL}/posts/${postId}`,
         {
@@ -22,10 +21,9 @@ function Post() {
           },
         },
       );
-      setPost(response.data.post);
-      console.log(response.data);
-      setPostOwner(response.data.post.author.username);
-      setCommentsArr(response.data.post.comments);
+      setPost(response.data);
+      setPostOwner(response.data.author.username);
+      setCommentsArr(response.data.comments);
     }
     getPost();
   }, [postId]);
@@ -45,20 +43,21 @@ function Post() {
         <p className={styles.post_content}>{post.content}</p>
       </div>
 
+      
+      <div className={styles.signupAndLoginModal}>
+        <CommentModal />
+      </div>
+
       <div className={styles.comments_array}>
         <h1>Comments</h1>
         {commentsArr.map((comment) => {
           return (
             <div className={styles.comment} key={comment.id}>
-              <span>{comment.Username}</span>
+              <span className={styles.comment_username}>{comment.Username}</span>
               <span>{comment.content}</span>
             </div>
           );
         })}
-      </div>
-
-      <div className={styles.signupAndLoginModal}>
-        <CommentModal />
       </div>
     </div>
   );
