@@ -1,20 +1,21 @@
 import { useState } from "react";
-import "../styles/sign-up.css";
 import axios from "axios";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
+import styles from "../styles/sign-up.module.css";
 
 export function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
-  const [result, setResult] = useState("");
+  const navigate = useNavigate();
 
   async function handleSubmit() {
     event.preventDefault();
 
     const response = await axios.post(
-      `${import.meta.env.VITE_}`,
+      `${import.meta.env.VITE_API_URL}/users`,
       {
         username,
         password,
@@ -28,13 +29,19 @@ export function SignUp() {
     );
 
     console.log(response.data);
+
+    if (response.data.success) {
+      return navigate("/login");
+    } else {
+      return setError(response.data.errors[0].msg);
+    }
   }
 
   return (
     <div id="main-container">
       <h1 id="sign-up-title">Welcome to HemantDahiyaDev Blogs</h1>
-      <h2>{result}</h2>
       <form onSubmit={handleSubmit} className="sign-up-form">
+        <span className={styles.result_title}>{error}</span>
         <div className="username-field">
           <label htmlFor="username">Enter a username: </label>
           <input
