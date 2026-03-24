@@ -1,7 +1,6 @@
-import { SignUp } from "../components/sign_up";
-import { Login } from "../components/log_in";
 import { HomePage } from "../components/homepage";
 import { Post } from "../components/post";
+import { SignUpAndLogin } from "../components/signAndLogin";
 
 const routes = [
   {
@@ -9,12 +8,8 @@ const routes = [
     element: <HomePage />,
   },
   {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/signup",
-    element: <SignUp />
+    path: "/auth",
+    element: <SignUpAndLogin />,
   }, 
   {
     path: "/:postId",
