@@ -6,7 +6,6 @@ import "../styles/log-in.css";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [result, setResult] = useState(false);
   const navigate = useNavigate();
 
   async function handleSubmit() {
@@ -26,14 +25,15 @@ function Login() {
     );
 
     let token = response.data.token;
-    let user = response.data.user.username;
-    localStorage.setItem("user", user);
+    let userId = response.data.userId;
+    let user = response.data.username;
+    localStorage.setItem("userId", userId);
+    localStorage.setItem("username", user);
     localStorage.setItem("token", "Bearer " + token);
     axios.defaults.headers.common["Authorization"] = "Bearer " + token;
-    setResult(response.data.success)
-
-    if(result) {
-      navigate("/");
+    
+    if(response.status === 200) {
+      return navigate("/");
     }
   }
 
