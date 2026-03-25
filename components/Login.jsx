@@ -27,13 +27,12 @@ function Login() {
       },
     );
 
-    console.log(response);
     let token = response.data.token;
     let userId = response.data.userId;
     let user = response.data.username;
     localStorage.setItem("userId", userId);
     localStorage.setItem("username", user);
-    localStorage.setItem("token", "Bearer " + token);
+    localStorage.setItem("token", token);
     axios.defaults.headers.common["Authorization"] = "Bearer " + token;
 
     if (response.status === 200) {
