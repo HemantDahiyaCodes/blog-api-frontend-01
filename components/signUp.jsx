@@ -28,8 +28,6 @@ function SignUp() {
       },
     );
 
-    console.log(response.data);
-
     if (response.data.success) {
       return navigate("/login");
     } else {
