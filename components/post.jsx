@@ -29,13 +29,14 @@ function Post() {
   }, [postId]);
 
   return (
-    <div className={styles.post_container}>
+    <div className={styles.mainContainer}>
       <Navbar />
+    <div className={styles.post_container}>
       <div className={styles.post}>
         <div className={styles.titleAndDesc}>
           <span className={styles.post_title}>{post.title}</span>
           <span className={styles.post_description}>{post.description}</span>
-          <span className={styles.post_owner}>Created by {postOwner}</span>
+          <span className={styles.post_owner}>{postOwner}</span>
         </div>
       </div>
 
@@ -49,16 +50,17 @@ function Post() {
       </div>
 
       <div className={styles.comments_array}>
-        <h1>Comments</h1>
+        <span className={styles.commentsTitle}>Comments</span>
         {commentsArr.map((comment) => {
           return (
             <div className={styles.comment} key={comment.id}>
               <span className={styles.comment_username}>{comment.Username}</span>
-              <span>{comment.content}</span>
+              <span className={styles.comment_content}>{comment.content}</span>
             </div>
           );
         })}
       </div>
+    </div>
     </div>
   );
 }
