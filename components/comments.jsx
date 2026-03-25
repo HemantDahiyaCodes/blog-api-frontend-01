@@ -3,14 +3,13 @@ import { Link, useNavigate, useParams } from "react-router";
 import axios from "axios";
 import styles from "../styles/comments-style.module.css";
 
-function CommentModal() {
+function CommentModal({setCommentArr}) {
   const userId = localStorage.getItem("userId");
   const user = localStorage.getItem("username");
   const [content, setContent] = useState(null);
   const navigate = useNavigate();
 
-  const { postId } = useParams();
-
+  const token = localStorage.getItem("token");
   async function handleSubmit(event) {
     event.preventDefault();
 
@@ -22,10 +21,13 @@ function CommentModal() {
       {
         headers: {
           "Content-Type": "application/json",
+          Authorization: token,
         },
       },
     );
 
+    setCommentArr(prev => [...prev, response.data.comment]);
+    setContent('');
     return response;
   }
 
