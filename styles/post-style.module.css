@@ -4,27 +4,25 @@
     box-sizing: border-box;
 }
 
-.post_container {
+.mainContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-.post_container h1 {
-    font-family: "Syne";
-    font-weight: 700;
+.post_container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .post {
     width: 90%;
     padding: 1rem;
-}
-
-.titleAndDesc {
-    display: flex;
-    flex-direction: column;
+    border-bottom: 1px solid #2a2a2a;
 }
 
 .post_title {
@@ -36,13 +34,19 @@
 
 .post_description {
     font-family: "Open sans", monospace;
-    color: rgb(192, 179, 179);
+    color: #555;
+    font-size: 0.9rem;
 }
 
 .post_owner {
     font-family: "Open sans", monospace;
-    color: wheat;
+    color: #ad9494;
     align-self: flex-end;
+}
+
+.titleAndDesc {
+    display: flex;
+    flex-direction: column;
 }
 
 .contentContainer {
@@ -54,27 +58,49 @@
     padding: 1rem;
 }
 
+.commentsTitle {
+    text-transform: uppercase;
+    font-family: "Syne";
+    font-size: 1.1rem;
+    color: #555;
+}
+
 .comments_array {
     width: 90%;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
     gap: 1rem;
-    font-family: "Open sans";
-    color: white;
 }
 
 .comments_array .comment {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-}
-
-.comment {
-    border-bottom: 1px solid white;
-    border-top: 1px solid white;
+    gap: 0.5rem;
+    border-bottom: 1px solid #2a2a2a;
 }
 
 .comment_username {
-    color: rgb(197, 255, 60);
+    font-family: "Syne";
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #c8f564;
+}
+
+.comment_content {
+    font-family: "Open sans";
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.signupAndLoginModal {
+    padding: 2rem;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+
+@media (max-width: 700px) {
+    .post_container {
+        width: 95%;
+    }
 }

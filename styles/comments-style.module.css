@@ -1,76 +1,113 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mainContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .CommentModal {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
 }
 
 .acc_links {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  background: rgb(150 205 100 / 18%);
+  padding: 2rem;
 }
 
 .acc_links span {
-    color: white;
-    padding: 1rem;
+  color: #d3b1b1;
+  font-family: "Syne";
+  font-weight: 600;
 }
 
 .acc_links a {
-    color: rgb(199, 195, 187);
-    font-family: "Open sans", monospace;
-    font-weight: 800;
-    text-decoration: none;
-    padding: 0.5rem;
+  color: rgb(230, 169, 47);
+  font-family: "Open sans", monospace;
+  font-weight: 800;
+  text-decoration: underline;
 }
 
 .acc_links a:hover {
-    color: white;
-    transition: 0.2s;
+  color: white;
+  transition: 0.2s;
 }
 
 .commentSection {
-    width: 100%;
+  width: 100%;
+}
+
+.commentSection .comment_user {
+  font-family: "Open sans";
+  font-size: 0.9rem;
+  color: white;
+}
+
+.commentSection .comment_username {
+  color: #c8f564;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "Open sans";
 }
 
 .commentSection textarea {
-    font-family: "Open sans", monospace;
-    padding: 1rem;
-    border-radius: 5px;
+  font-family: "Syne";
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #161616;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  resize: none;
+}
+
+.commentSection textarea:focus {
+  border: 1px solid #c8f564;
+  box-shadow: 0.2px 0.2px 2px #c8f564;
 }
 
 .commentSection form {
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.commentSection form span {
-    font-family: "Syne", sans-serif;
-    font-weight: 600;
-    color: rgb(241, 230, 230);
+.commentSection form .submitButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.commentSection form .submit {
+  text-transform: uppercase;
+  font-family: "Syne";
+  background-color: #c8f564;
+  color: #161616;
+  border: 1px solid #c8f564;
+}
+
+.commentSection form .submit:hover {
+  box-shadow: 1px 1px 5px #c8f564;
 }
 
 .commentSection form button {
-    padding: 1rem;
-    font-family: "Open sans", monospace, sans-serif;
-    font-size: 1rem;
-    border: none;
-    background-color: transparent;
-    color: white;
-    border: 1px solid rgb(223, 223, 223);
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  background-color: transparent;
+  border: 1px solid #2a2a2a;
+  color: #555;
+  text-transform: uppercase;
 }
 
 .commentSection form button:hover {
-    background-color: rgb(230, 197, 197);
-    color: black;
-    transition: 0.2s;
-    box-shadow: 1px 2px 2px black;
+    box-shadow: 1px 2px 3px #555;
 }
