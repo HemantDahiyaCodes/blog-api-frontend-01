@@ -9,6 +9,8 @@ function CommentModal({setCommentArr}) {
   const [content, setContent] = useState(null);
   const navigate = useNavigate();
 
+  const { postId } = useParams();
+
   const token = localStorage.getItem("token");
   async function handleSubmit(event) {
     event.preventDefault();
