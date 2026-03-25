@@ -43,8 +43,7 @@ function CommentModal({setCommentArr}) {
     <div className={styles.CommentModal}>
       {!userId ? (
         <div className={styles.acc_links}>
-          <span>Create a free account or login</span>
-          <Link to="/auth">Sign up or login</Link>
+          <span>Create a free account or login<Link to="/auth">here</Link></span>
         </div>
       ) : (
         <div className={styles.commentSection}>
