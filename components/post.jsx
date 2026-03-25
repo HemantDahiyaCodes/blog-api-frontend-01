@@ -45,7 +45,7 @@ function Post() {
 
       
       <div className={styles.signupAndLoginModal}>
-        <CommentModal />
+        <CommentModal setCommentArr={setCommentsArr} />
       </div>
 
       <div className={styles.comments_array}>
