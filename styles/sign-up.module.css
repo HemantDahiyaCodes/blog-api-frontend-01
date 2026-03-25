@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+#mainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1rem;
+  align-items: center;
+}
+
+
+.signUpForm {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(22 21 21);
+  padding: 1rem;
+  width: 35%;
+}
+
+#joinMessage {
+  color: rgb(252, 231, 231);
+  font-size: 2rem;
+  font-family: "Syne";
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  align-self: flex-start;
+}
+
+.result_title {
+  color: rgb(223, 189, 189);
+  text-align: center;
+  font-family: "Syne";
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 1rem;
+  gap: 0.2rem;
+}
+
+section label {
+  font-family: "Open sans", monospace;
+  color: #666666;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.1rem;
+}
+
+section input {
+  padding: 0.7rem;
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  font-family: "Syne";
+  color: wheat;
+  outline: none;
+}
+
+section input:focus {
+  border: 1px solid rgb(243, 108, 108);
+}
+
+.signUpForm button {
+  padding: 1rem;
+  width: 90%;
+  align-self: center;
+  text-transform: uppercase;
+  font-family: "Open sans";
+  font-size: 0.8rem;
+  font-weight: 400;
+  background-color: #00ff88;
+  border: none;
+  outline: none;
+}
+
+@media (max-width: 700px) {
+  .signUpForm {
+    width: 100%;
+  }
+}
