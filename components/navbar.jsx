@@ -14,7 +14,7 @@ function Navbar() {
           <Link to="/">POSTS</Link>
         </li>
         <li>
-          <a href="#" rel="noopener noreferrer">
+          <a href="https://x.com/Hemant_codes" rel="noopener noreferrer">
             X
           </a>
         </li>
