@@ -8,7 +8,6 @@ function AllPosts() {
   useEffect(() => {
     async function getPosts() {
       const response = await axios.get(`${import.meta.env.VITE_API_URL}/posts`);
-      console.log(response.data);
       setPosts(response.data.posts);
     }
     getPosts();
