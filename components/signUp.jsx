@@ -29,7 +29,7 @@ function SignUp() {
     );
 
     if (response.data.success) {
-      return navigate("/login");
+      return navigate("/auth");
     } else {
       return setError(response.data.errors[0].msg);
     }
